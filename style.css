@@ -1,13 +1,16 @@
-/* === Justin Paul Kenwabikise — Personal Site === */
+/* === Nbiish-Justin Paul Kenwabikise — Personal Site === */
 
 :root {
   --bg: #0a0a0a;
   --bg-card: #141414;
+  --bg-featured: #141d1a;
   --text: #e0e0e0;
   --text-muted: #888;
   --accent: #00d4aa;
   --accent-glow: #00ffcc;
+  --accent-dim: rgba(0, 212, 170, 0.15);
   --border: #222;
+  --border-accent: #1a3a30;
   --radius: 8px;
 }
 
@@ -23,7 +26,6 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -31,7 +33,7 @@ body {
     Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.75;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -40,9 +42,16 @@ body {
 /* ----- Hero ----- */
 .hero {
   text-align: center;
-  padding: 6rem 1.5rem 4rem;
+  padding: 5rem 1.5rem 3.5rem;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, #0d1a16 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, #0d1a16 0%, rgba(13, 26, 22, 0.3) 60%, var(--bg) 100%);
+}
+
+.syllabics {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.05em;
 }
 
 .hero h1 {
@@ -54,20 +63,27 @@ body {
 }
 
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--accent);
   font-weight: 500;
 }
 
-.location {
+.clan {
   margin-top: 0.5rem;
   font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.location {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
 }
 
 /* ----- Sections ----- */
 main {
-  max-width: 900px;
+  max-width: 960px;
   width: 100%;
   margin: 0 auto;
   padding: 3rem 1.5rem;
@@ -75,24 +91,24 @@ main {
 }
 
 section {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 section h2 {
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--accent);
   display: inline-block;
 }
 
 .about p {
-  color: var(--text);
   margin-bottom: 1rem;
-  font-size: 1.05rem;
-  max-width: 68ch;
+  font-size: 1.02rem;
+  max-width: 72ch;
+  color: #ccc;
 }
 
 .about strong {
@@ -105,11 +121,16 @@ section h2 {
   font-style: normal;
 }
 
+.about a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 /* ----- Expertise Grid ----- */
 .expertise-grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
 }
 
@@ -134,14 +155,14 @@ section h2 {
 }
 
 .expertise-grid span {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
 }
 
 /* ----- Project Cards ----- */
 .project-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
 }
 
@@ -151,6 +172,13 @@ section h2 {
   border-radius: var(--radius);
   padding: 1.4rem;
   transition: border-color 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card.featured {
+  background: var(--bg-featured);
+  border-color: var(--border-accent);
 }
 
 .project-card:hover {
@@ -161,35 +189,154 @@ section h2 {
 .project-card h3 {
   color: #fff;
   font-size: 1.05rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.project-card h3 .lang {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
 }
 
 .project-card p {
   color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.6;
+  flex: 1;
 }
 
-/* ----- Links ----- */
-.links {
-  list-style: none;
+.project-card p strong {
+  color: #ccc;
+}
+
+.project-card p a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.project-card p a:hover {
+  text-decoration: underline;
+}
+
+.project-card code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  color: var(--accent);
+}
+
+.project-links {
+  margin-top: 0.8rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-links a {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.project-links a:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent-glow);
+}
+
+/* ----- Timeline (Experience & Education) ----- */
+.timeline {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
-.links a {
+.timeline-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.2rem 1.4rem;
+}
+
+.timeline-item h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-item h3 .date {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}
+
+.timeline-item p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ----- Advocacy List ----- */
+.advocacy-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.advocacy-list li {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.advocacy-list strong {
+  color: var(--accent-glow);
+}
+
+.advocacy-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.advocacy-list a:hover {
+  text-decoration: underline;
+}
+
+/* ----- Link Grid ----- */
+.link-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+
+.link-grid a {
+  display: block;
   color: var(--accent);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  padding: 0.55rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
-.links a:hover {
-  background: rgba(0, 212, 170, 0.1);
+.link-grid a:hover {
+  background: var(--accent-dim);
   border-color: var(--accent);
   color: var(--accent-glow);
 }
@@ -201,18 +348,23 @@ footer {
   border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 0.85rem;
+  line-height: 1.6;
 }
 
 .handle {
   color: var(--accent);
-  margin-top: 0.3rem;
   font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.85rem;
 }
 
 /* ----- Responsive ----- */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .hero {
     padding: 3rem 1rem 2rem;
+  }
+
+  .syllabics {
+    font-size: 1.4rem;
   }
 
   main {
@@ -220,7 +372,16 @@ footer {
   }
 
   .expertise-grid,
-  .project-cards {
+  .project-cards,
+  .link-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-links a {
+    text-align: center;
   }
 }
