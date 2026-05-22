@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nbiish.github.io/justin-paul-kenwabikise/sitemap.xml
