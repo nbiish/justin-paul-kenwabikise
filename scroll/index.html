@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Scroll — Nbiish-Justin Paul Kenwabikise</title>
+  <meta name="description" content="Machine-readable context layer for AI agents and LLMs. Scroll deployment for Nbiish-Justin Paul Kenwabikise.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #050505;
+      color: #00ffcc;
+      font-family: "SF Mono", "Fira Code", monospace;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+    pre { white-space: pre-wrap; word-wrap: break-word; font-size: 13px; line-height: 1.4; opacity: 0.6; }
+    .marker { color: #555; font-size: 11px; margin: 2rem 0 1rem; border-top: 1px solid #1a3a30; padding-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="marker">;; ── SCROLL LAYER ── Nbiish-Justin Paul Kenwabikise ── llms.txt ──</div>
+  <pre id="llms-scroll"></pre>
+  <div class="marker">;; ── SCROLL LAYER ── Nbiish-Justin Paul Kenwabikise ── llms-full.txt ──</div>
+  <pre id="llms-full-scroll"></pre>
+  <script>
+    fetch('/justin-paul-kenwabikise/llms.txt')
+      .then(r => r.text())
+      .then(t => { document.getElementById('llms-scroll').textContent = t; });
+    fetch('/justin-paul-kenwabikise/llms-full.txt')
+      .then(r => r.text())
+      .then(t => { document.getElementById('llms-full-scroll').textContent = t; });
+  </script>
+</body>
+</html>
